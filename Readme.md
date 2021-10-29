@@ -11,5 +11,5 @@
 ### F-> (E)
 ### F->NUMBER
 
-### CAPTURAS DE ENTRADA Y SALIDA:
+
 <img src="imgs/CAPTURA.png" style="zoom:50%;" />
