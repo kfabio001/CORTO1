@@ -60,27 +60,27 @@ def new_temp():
         
 
 class Temporal():
-    def __init__(self,tmp,c3d):
-        self.tmp=tmp
-        self.c3d=c3d
+    def __init__(selayerF,tmp,concat):
+        selayerF.tmp=tmp
+        selayerF.concat=concat
 
 def p_S(t):
     ' s	: e'
     t[0] = t[1]
-    print("Salida \n"+str(t[0].c3d))
+    print("Salida \n"+str(t[0].concat))
 def p_Exp(t):
     ''' e	: e SUMA t 
             | e RESTA t  '''
 
     if t[2] == '+':
-        Etemp = new_temp()
-        Ec3d = str(t[1].c3d)+str(t[3].c3d)+ str(Etemp)+"="+str(t[1].tmp)+"+"+str(t[3].tmp+"\n")
-        t[0] = Temporal(str(Etemp),str(Ec3d))
+        expr = new_temp()
+        contenido = str(t[1].concat)+str(t[3].concat)+ str(expr)+"="+str(t[1].tmp)+"+"+str(t[3].tmp+"\n")
+        t[0] = Temporal(str(expr),str(contenido))
     
     elif t[2] == '-':
-        Etemp = new_temp()
-        Ec3d = str(t[1].c3d)+str(t[3].c3d)+str(Etemp)+"="+str(t[1].tmp)+"-"+str(t[3].tmp+"\n")
-        t[0] = Temporal(str(Etemp),str(Ec3d))
+        expr = new_temp()
+        contenido = str(t[1].concat)+str(t[3].concat)+str(expr)+"="+str(t[1].tmp)+"-"+str(t[3].tmp+"\n")
+        t[0] = Temporal(str(expr),str(contenido))
         
 def p_etiqueta(t):
     'e : t'
@@ -90,15 +90,15 @@ def p_T(t):
     ''' e	: e MULTIPLICACION t 
             | e DIVISION t  ''' 
     if t[2] == '*':
-        Etemp = new_temp()  
-        Ec3d = str(t[1].c3d)+str(t[3].c3d)+str(Etemp)+"="+str(t[1].tmp)+"*"+str(t[3].tmp+"\n")
-        t[0] = Temporal(str(Etemp),str(Ec3d))
+        expr = new_temp()  
+        contenido = str(t[1].concat)+str(t[3].concat)+str(expr)+"="+str(t[1].tmp)+"*"+str(t[3].tmp+"\n")
+        t[0] = Temporal(str(expr),str(contenido))
 	    
     
     elif t[2] == '/':
-        Etemp = new_temp()
-        Ec3d = str(t[1].c3d)+str(t[3].c3d)+str(Etemp)+"="+str(t[1].tmp)+"/"+str(t[3].tmp+"\n")
-        t[0] = Temporal(str(Etemp),str(Ec3d))
+        expr = new_temp()
+        contenido = str(t[1].concat)+str(t[3].concat)+str(expr)+"="+str(t[1].tmp)+"/"+str(t[3].tmp+"\n")
+        t[0] = Temporal(str(expr),str(contenido))
 
 
         

@@ -1,0 +1,926 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    FALSO
+    VERDADERO
+
+Grammar
+
+Rule 0     S' -> s
+Rule 1     s -> p
+Rule 2     p -> p OR l
+Rule 3     p -> l
+Rule 4     l -> l AND n
+Rule 5     l -> n
+Rule 6     n -> NOT k
+Rule 7     n -> k
+Rule 8     k -> e MAYOR e
+Rule 9     k -> e MENOR e
+Rule 10    k -> e MAYORIGUAL e
+Rule 11    k -> e MENORIGUAL e
+Rule 12    k -> e IGUAL e
+Rule 13    k -> e DIFERENTE e
+Rule 14    k -> e
+Rule 15    e -> e SUMA e
+Rule 16    e -> e RESTA e
+Rule 17    e -> e MULTIPLICACION e
+Rule 18    e -> e DIVISION e
+Rule 19    e -> RESTA e
+Rule 20    e -> ID
+Rule 21    e -> ENTERO
+Rule 22    e -> DECIMAL
+Rule 23    e -> ParA p ParC
+
+Terminals, with rules where they appear
+
+AND                  : 4
+DECIMAL              : 22
+DIFERENTE            : 13
+DIVISION             : 18
+ENTERO               : 21
+FALSO                : 
+ID                   : 20
+IGUAL                : 12
+MAYOR                : 8
+MAYORIGUAL           : 10
+MENOR                : 9
+MENORIGUAL           : 11
+MULTIPLICACION       : 17
+NOT                  : 6
+OR                   : 2
+ParA                 : 23
+ParC                 : 23
+RESTA                : 16 19
+SUMA                 : 15
+VERDADERO            : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+e                    : 8 8 9 9 10 10 11 11 12 12 13 13 14 15 15 16 16 17 17 18 18 19
+k                    : 6 7
+l                    : 2 3 4
+n                    : 4 5
+p                    : 1 2 23
+s                    : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . s
+    (1) s -> . p
+    (2) p -> . p OR l
+    (3) p -> . l
+    (4) l -> . l AND n
+    (5) l -> . n
+    (6) n -> . NOT k
+    (7) n -> . k
+    (8) k -> . e MAYOR e
+    (9) k -> . e MENOR e
+    (10) k -> . e MAYORIGUAL e
+    (11) k -> . e MENORIGUAL e
+    (12) k -> . e IGUAL e
+    (13) k -> . e DIFERENTE e
+    (14) k -> . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    NOT             shift and go to state 5
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    s                              shift and go to state 1
+    p                              shift and go to state 2
+    l                              shift and go to state 3
+    n                              shift and go to state 4
+    k                              shift and go to state 6
+    e                              shift and go to state 7
+
+state 1
+
+    (0) S' -> s .
+
+
+
+state 2
+
+    (1) s -> p .
+    (2) p -> p . OR l
+
+    $end            reduce using rule 1 (s -> p .)
+    OR              shift and go to state 13
+
+
+state 3
+
+    (3) p -> l .
+    (4) l -> l . AND n
+
+    OR              reduce using rule 3 (p -> l .)
+    $end            reduce using rule 3 (p -> l .)
+    ParC            reduce using rule 3 (p -> l .)
+    AND             shift and go to state 14
+
+
+state 4
+
+    (5) l -> n .
+
+    AND             reduce using rule 5 (l -> n .)
+    OR              reduce using rule 5 (l -> n .)
+    $end            reduce using rule 5 (l -> n .)
+    ParC            reduce using rule 5 (l -> n .)
+
+
+state 5
+
+    (6) n -> NOT . k
+    (8) k -> . e MAYOR e
+    (9) k -> . e MENOR e
+    (10) k -> . e MAYORIGUAL e
+    (11) k -> . e MENORIGUAL e
+    (12) k -> . e IGUAL e
+    (13) k -> . e DIFERENTE e
+    (14) k -> . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    k                              shift and go to state 15
+    e                              shift and go to state 7
+
+state 6
+
+    (7) n -> k .
+
+    AND             reduce using rule 7 (n -> k .)
+    OR              reduce using rule 7 (n -> k .)
+    $end            reduce using rule 7 (n -> k .)
+    ParC            reduce using rule 7 (n -> k .)
+
+
+state 7
+
+    (8) k -> e . MAYOR e
+    (9) k -> e . MENOR e
+    (10) k -> e . MAYORIGUAL e
+    (11) k -> e . MENORIGUAL e
+    (12) k -> e . IGUAL e
+    (13) k -> e . DIFERENTE e
+    (14) k -> e .
+    (15) e -> e . SUMA e
+    (16) e -> e . RESTA e
+    (17) e -> e . MULTIPLICACION e
+    (18) e -> e . DIVISION e
+
+    MAYOR           shift and go to state 16
+    MENOR           shift and go to state 17
+    MAYORIGUAL      shift and go to state 18
+    MENORIGUAL      shift and go to state 19
+    IGUAL           shift and go to state 20
+    DIFERENTE       shift and go to state 21
+    AND             reduce using rule 14 (k -> e .)
+    OR              reduce using rule 14 (k -> e .)
+    $end            reduce using rule 14 (k -> e .)
+    ParC            reduce using rule 14 (k -> e .)
+    SUMA            shift and go to state 22
+    RESTA           shift and go to state 23
+    MULTIPLICACION  shift and go to state 24
+    DIVISION        shift and go to state 25
+
+
+state 8
+
+    (19) e -> RESTA . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    e                              shift and go to state 26
+
+state 9
+
+    (20) e -> ID .
+
+    MAYOR           reduce using rule 20 (e -> ID .)
+    MENOR           reduce using rule 20 (e -> ID .)
+    MAYORIGUAL      reduce using rule 20 (e -> ID .)
+    MENORIGUAL      reduce using rule 20 (e -> ID .)
+    IGUAL           reduce using rule 20 (e -> ID .)
+    DIFERENTE       reduce using rule 20 (e -> ID .)
+    SUMA            reduce using rule 20 (e -> ID .)
+    RESTA           reduce using rule 20 (e -> ID .)
+    MULTIPLICACION  reduce using rule 20 (e -> ID .)
+    DIVISION        reduce using rule 20 (e -> ID .)
+    AND             reduce using rule 20 (e -> ID .)
+    OR              reduce using rule 20 (e -> ID .)
+    $end            reduce using rule 20 (e -> ID .)
+    ParC            reduce using rule 20 (e -> ID .)
+
+
+state 10
+
+    (21) e -> ENTERO .
+
+    MAYOR           reduce using rule 21 (e -> ENTERO .)
+    MENOR           reduce using rule 21 (e -> ENTERO .)
+    MAYORIGUAL      reduce using rule 21 (e -> ENTERO .)
+    MENORIGUAL      reduce using rule 21 (e -> ENTERO .)
+    IGUAL           reduce using rule 21 (e -> ENTERO .)
+    DIFERENTE       reduce using rule 21 (e -> ENTERO .)
+    SUMA            reduce using rule 21 (e -> ENTERO .)
+    RESTA           reduce using rule 21 (e -> ENTERO .)
+    MULTIPLICACION  reduce using rule 21 (e -> ENTERO .)
+    DIVISION        reduce using rule 21 (e -> ENTERO .)
+    AND             reduce using rule 21 (e -> ENTERO .)
+    OR              reduce using rule 21 (e -> ENTERO .)
+    $end            reduce using rule 21 (e -> ENTERO .)
+    ParC            reduce using rule 21 (e -> ENTERO .)
+
+
+state 11
+
+    (22) e -> DECIMAL .
+
+    MAYOR           reduce using rule 22 (e -> DECIMAL .)
+    MENOR           reduce using rule 22 (e -> DECIMAL .)
+    MAYORIGUAL      reduce using rule 22 (e -> DECIMAL .)
+    MENORIGUAL      reduce using rule 22 (e -> DECIMAL .)
+    IGUAL           reduce using rule 22 (e -> DECIMAL .)
+    DIFERENTE       reduce using rule 22 (e -> DECIMAL .)
+    SUMA            reduce using rule 22 (e -> DECIMAL .)
+    RESTA           reduce using rule 22 (e -> DECIMAL .)
+    MULTIPLICACION  reduce using rule 22 (e -> DECIMAL .)
+    DIVISION        reduce using rule 22 (e -> DECIMAL .)
+    AND             reduce using rule 22 (e -> DECIMAL .)
+    OR              reduce using rule 22 (e -> DECIMAL .)
+    $end            reduce using rule 22 (e -> DECIMAL .)
+    ParC            reduce using rule 22 (e -> DECIMAL .)
+
+
+state 12
+
+    (23) e -> ParA . p ParC
+    (2) p -> . p OR l
+    (3) p -> . l
+    (4) l -> . l AND n
+    (5) l -> . n
+    (6) n -> . NOT k
+    (7) n -> . k
+    (8) k -> . e MAYOR e
+    (9) k -> . e MENOR e
+    (10) k -> . e MAYORIGUAL e
+    (11) k -> . e MENORIGUAL e
+    (12) k -> . e IGUAL e
+    (13) k -> . e DIFERENTE e
+    (14) k -> . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    NOT             shift and go to state 5
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    p                              shift and go to state 27
+    l                              shift and go to state 3
+    n                              shift and go to state 4
+    k                              shift and go to state 6
+    e                              shift and go to state 7
+
+state 13
+
+    (2) p -> p OR . l
+    (4) l -> . l AND n
+    (5) l -> . n
+    (6) n -> . NOT k
+    (7) n -> . k
+    (8) k -> . e MAYOR e
+    (9) k -> . e MENOR e
+    (10) k -> . e MAYORIGUAL e
+    (11) k -> . e MENORIGUAL e
+    (12) k -> . e IGUAL e
+    (13) k -> . e DIFERENTE e
+    (14) k -> . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    NOT             shift and go to state 5
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    l                              shift and go to state 28
+    n                              shift and go to state 4
+    k                              shift and go to state 6
+    e                              shift and go to state 7
+
+state 14
+
+    (4) l -> l AND . n
+    (6) n -> . NOT k
+    (7) n -> . k
+    (8) k -> . e MAYOR e
+    (9) k -> . e MENOR e
+    (10) k -> . e MAYORIGUAL e
+    (11) k -> . e MENORIGUAL e
+    (12) k -> . e IGUAL e
+    (13) k -> . e DIFERENTE e
+    (14) k -> . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    NOT             shift and go to state 5
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    n                              shift and go to state 29
+    k                              shift and go to state 6
+    e                              shift and go to state 7
+
+state 15
+
+    (6) n -> NOT k .
+
+    AND             reduce using rule 6 (n -> NOT k .)
+    OR              reduce using rule 6 (n -> NOT k .)
+    $end            reduce using rule 6 (n -> NOT k .)
+    ParC            reduce using rule 6 (n -> NOT k .)
+
+
+state 16
+
+    (8) k -> e MAYOR . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    e                              shift and go to state 30
+
+state 17
+
+    (9) k -> e MENOR . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    e                              shift and go to state 31
+
+state 18
+
+    (10) k -> e MAYORIGUAL . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    e                              shift and go to state 32
+
+state 19
+
+    (11) k -> e MENORIGUAL . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    e                              shift and go to state 33
+
+state 20
+
+    (12) k -> e IGUAL . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    e                              shift and go to state 34
+
+state 21
+
+    (13) k -> e DIFERENTE . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    e                              shift and go to state 35
+
+state 22
+
+    (15) e -> e SUMA . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    e                              shift and go to state 36
+
+state 23
+
+    (16) e -> e RESTA . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    e                              shift and go to state 37
+
+state 24
+
+    (17) e -> e MULTIPLICACION . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    e                              shift and go to state 38
+
+state 25
+
+    (18) e -> e DIVISION . e
+    (15) e -> . e SUMA e
+    (16) e -> . e RESTA e
+    (17) e -> . e MULTIPLICACION e
+    (18) e -> . e DIVISION e
+    (19) e -> . RESTA e
+    (20) e -> . ID
+    (21) e -> . ENTERO
+    (22) e -> . DECIMAL
+    (23) e -> . ParA p ParC
+
+    RESTA           shift and go to state 8
+    ID              shift and go to state 9
+    ENTERO          shift and go to state 10
+    DECIMAL         shift and go to state 11
+    ParA            shift and go to state 12
+
+    e                              shift and go to state 39
+
+state 26
+
+    (19) e -> RESTA e .
+    (15) e -> e . SUMA e
+    (16) e -> e . RESTA e
+    (17) e -> e . MULTIPLICACION e
+    (18) e -> e . DIVISION e
+
+    MAYOR           reduce using rule 19 (e -> RESTA e .)
+    MENOR           reduce using rule 19 (e -> RESTA e .)
+    MAYORIGUAL      reduce using rule 19 (e -> RESTA e .)
+    MENORIGUAL      reduce using rule 19 (e -> RESTA e .)
+    IGUAL           reduce using rule 19 (e -> RESTA e .)
+    DIFERENTE       reduce using rule 19 (e -> RESTA e .)
+    SUMA            reduce using rule 19 (e -> RESTA e .)
+    RESTA           reduce using rule 19 (e -> RESTA e .)
+    MULTIPLICACION  reduce using rule 19 (e -> RESTA e .)
+    DIVISION        reduce using rule 19 (e -> RESTA e .)
+    AND             reduce using rule 19 (e -> RESTA e .)
+    OR              reduce using rule 19 (e -> RESTA e .)
+    $end            reduce using rule 19 (e -> RESTA e .)
+    ParC            reduce using rule 19 (e -> RESTA e .)
+
+  ! SUMA            [ shift and go to state 22 ]
+  ! RESTA           [ shift and go to state 23 ]
+  ! MULTIPLICACION  [ shift and go to state 24 ]
+  ! DIVISION        [ shift and go to state 25 ]
+
+
+state 27
+
+    (23) e -> ParA p . ParC
+    (2) p -> p . OR l
+
+    ParC            shift and go to state 40
+    OR              shift and go to state 13
+
+
+state 28
+
+    (2) p -> p OR l .
+    (4) l -> l . AND n
+
+    OR              reduce using rule 2 (p -> p OR l .)
+    $end            reduce using rule 2 (p -> p OR l .)
+    ParC            reduce using rule 2 (p -> p OR l .)
+    AND             shift and go to state 14
+
+
+state 29
+
+    (4) l -> l AND n .
+
+    AND             reduce using rule 4 (l -> l AND n .)
+    OR              reduce using rule 4 (l -> l AND n .)
+    $end            reduce using rule 4 (l -> l AND n .)
+    ParC            reduce using rule 4 (l -> l AND n .)
+
+
+state 30
+
+    (8) k -> e MAYOR e .
+    (15) e -> e . SUMA e
+    (16) e -> e . RESTA e
+    (17) e -> e . MULTIPLICACION e
+    (18) e -> e . DIVISION e
+
+    AND             reduce using rule 8 (k -> e MAYOR e .)
+    OR              reduce using rule 8 (k -> e MAYOR e .)
+    $end            reduce using rule 8 (k -> e MAYOR e .)
+    ParC            reduce using rule 8 (k -> e MAYOR e .)
+    SUMA            shift and go to state 22
+    RESTA           shift and go to state 23
+    MULTIPLICACION  shift and go to state 24
+    DIVISION        shift and go to state 25
+
+
+state 31
+
+    (9) k -> e MENOR e .
+    (15) e -> e . SUMA e
+    (16) e -> e . RESTA e
+    (17) e -> e . MULTIPLICACION e
+    (18) e -> e . DIVISION e
+
+    AND             reduce using rule 9 (k -> e MENOR e .)
+    OR              reduce using rule 9 (k -> e MENOR e .)
+    $end            reduce using rule 9 (k -> e MENOR e .)
+    ParC            reduce using rule 9 (k -> e MENOR e .)
+    SUMA            shift and go to state 22
+    RESTA           shift and go to state 23
+    MULTIPLICACION  shift and go to state 24
+    DIVISION        shift and go to state 25
+
+
+state 32
+
+    (10) k -> e MAYORIGUAL e .
+    (15) e -> e . SUMA e
+    (16) e -> e . RESTA e
+    (17) e -> e . MULTIPLICACION e
+    (18) e -> e . DIVISION e
+
+    AND             reduce using rule 10 (k -> e MAYORIGUAL e .)
+    OR              reduce using rule 10 (k -> e MAYORIGUAL e .)
+    $end            reduce using rule 10 (k -> e MAYORIGUAL e .)
+    ParC            reduce using rule 10 (k -> e MAYORIGUAL e .)
+    SUMA            shift and go to state 22
+    RESTA           shift and go to state 23
+    MULTIPLICACION  shift and go to state 24
+    DIVISION        shift and go to state 25
+
+
+state 33
+
+    (11) k -> e MENORIGUAL e .
+    (15) e -> e . SUMA e
+    (16) e -> e . RESTA e
+    (17) e -> e . MULTIPLICACION e
+    (18) e -> e . DIVISION e
+
+    AND             reduce using rule 11 (k -> e MENORIGUAL e .)
+    OR              reduce using rule 11 (k -> e MENORIGUAL e .)
+    $end            reduce using rule 11 (k -> e MENORIGUAL e .)
+    ParC            reduce using rule 11 (k -> e MENORIGUAL e .)
+    SUMA            shift and go to state 22
+    RESTA           shift and go to state 23
+    MULTIPLICACION  shift and go to state 24
+    DIVISION        shift and go to state 25
+
+
+state 34
+
+    (12) k -> e IGUAL e .
+    (15) e -> e . SUMA e
+    (16) e -> e . RESTA e
+    (17) e -> e . MULTIPLICACION e
+    (18) e -> e . DIVISION e
+
+    AND             reduce using rule 12 (k -> e IGUAL e .)
+    OR              reduce using rule 12 (k -> e IGUAL e .)
+    $end            reduce using rule 12 (k -> e IGUAL e .)
+    ParC            reduce using rule 12 (k -> e IGUAL e .)
+    SUMA            shift and go to state 22
+    RESTA           shift and go to state 23
+    MULTIPLICACION  shift and go to state 24
+    DIVISION        shift and go to state 25
+
+
+state 35
+
+    (13) k -> e DIFERENTE e .
+    (15) e -> e . SUMA e
+    (16) e -> e . RESTA e
+    (17) e -> e . MULTIPLICACION e
+    (18) e -> e . DIVISION e
+
+    AND             reduce using rule 13 (k -> e DIFERENTE e .)
+    OR              reduce using rule 13 (k -> e DIFERENTE e .)
+    $end            reduce using rule 13 (k -> e DIFERENTE e .)
+    ParC            reduce using rule 13 (k -> e DIFERENTE e .)
+    SUMA            shift and go to state 22
+    RESTA           shift and go to state 23
+    MULTIPLICACION  shift and go to state 24
+    DIVISION        shift and go to state 25
+
+
+state 36
+
+    (15) e -> e SUMA e .
+    (15) e -> e . SUMA e
+    (16) e -> e . RESTA e
+    (17) e -> e . MULTIPLICACION e
+    (18) e -> e . DIVISION e
+
+    MAYOR           reduce using rule 15 (e -> e SUMA e .)
+    MENOR           reduce using rule 15 (e -> e SUMA e .)
+    MAYORIGUAL      reduce using rule 15 (e -> e SUMA e .)
+    MENORIGUAL      reduce using rule 15 (e -> e SUMA e .)
+    IGUAL           reduce using rule 15 (e -> e SUMA e .)
+    DIFERENTE       reduce using rule 15 (e -> e SUMA e .)
+    SUMA            reduce using rule 15 (e -> e SUMA e .)
+    RESTA           reduce using rule 15 (e -> e SUMA e .)
+    AND             reduce using rule 15 (e -> e SUMA e .)
+    OR              reduce using rule 15 (e -> e SUMA e .)
+    $end            reduce using rule 15 (e -> e SUMA e .)
+    ParC            reduce using rule 15 (e -> e SUMA e .)
+    MULTIPLICACION  shift and go to state 24
+    DIVISION        shift and go to state 25
+
+  ! MULTIPLICACION  [ reduce using rule 15 (e -> e SUMA e .) ]
+  ! DIVISION        [ reduce using rule 15 (e -> e SUMA e .) ]
+  ! SUMA            [ shift and go to state 22 ]
+  ! RESTA           [ shift and go to state 23 ]
+
+
+state 37
+
+    (16) e -> e RESTA e .
+    (15) e -> e . SUMA e
+    (16) e -> e . RESTA e
+    (17) e -> e . MULTIPLICACION e
+    (18) e -> e . DIVISION e
+
+    MAYOR           reduce using rule 16 (e -> e RESTA e .)
+    MENOR           reduce using rule 16 (e -> e RESTA e .)
+    MAYORIGUAL      reduce using rule 16 (e -> e RESTA e .)
+    MENORIGUAL      reduce using rule 16 (e -> e RESTA e .)
+    IGUAL           reduce using rule 16 (e -> e RESTA e .)
+    DIFERENTE       reduce using rule 16 (e -> e RESTA e .)
+    SUMA            reduce using rule 16 (e -> e RESTA e .)
+    RESTA           reduce using rule 16 (e -> e RESTA e .)
+    AND             reduce using rule 16 (e -> e RESTA e .)
+    OR              reduce using rule 16 (e -> e RESTA e .)
+    $end            reduce using rule 16 (e -> e RESTA e .)
+    ParC            reduce using rule 16 (e -> e RESTA e .)
+    MULTIPLICACION  shift and go to state 24
+    DIVISION        shift and go to state 25
+
+  ! MULTIPLICACION  [ reduce using rule 16 (e -> e RESTA e .) ]
+  ! DIVISION        [ reduce using rule 16 (e -> e RESTA e .) ]
+  ! SUMA            [ shift and go to state 22 ]
+  ! RESTA           [ shift and go to state 23 ]
+
+
+state 38
+
+    (17) e -> e MULTIPLICACION e .
+    (15) e -> e . SUMA e
+    (16) e -> e . RESTA e
+    (17) e -> e . MULTIPLICACION e
+    (18) e -> e . DIVISION e
+
+    MAYOR           reduce using rule 17 (e -> e MULTIPLICACION e .)
+    MENOR           reduce using rule 17 (e -> e MULTIPLICACION e .)
+    MAYORIGUAL      reduce using rule 17 (e -> e MULTIPLICACION e .)
+    MENORIGUAL      reduce using rule 17 (e -> e MULTIPLICACION e .)
+    IGUAL           reduce using rule 17 (e -> e MULTIPLICACION e .)
+    DIFERENTE       reduce using rule 17 (e -> e MULTIPLICACION e .)
+    SUMA            reduce using rule 17 (e -> e MULTIPLICACION e .)
+    RESTA           reduce using rule 17 (e -> e MULTIPLICACION e .)
+    MULTIPLICACION  reduce using rule 17 (e -> e MULTIPLICACION e .)
+    DIVISION        reduce using rule 17 (e -> e MULTIPLICACION e .)
+    AND             reduce using rule 17 (e -> e MULTIPLICACION e .)
+    OR              reduce using rule 17 (e -> e MULTIPLICACION e .)
+    $end            reduce using rule 17 (e -> e MULTIPLICACION e .)
+    ParC            reduce using rule 17 (e -> e MULTIPLICACION e .)
+
+  ! SUMA            [ shift and go to state 22 ]
+  ! RESTA           [ shift and go to state 23 ]
+  ! MULTIPLICACION  [ shift and go to state 24 ]
+  ! DIVISION        [ shift and go to state 25 ]
+
+
+state 39
+
+    (18) e -> e DIVISION e .
+    (15) e -> e . SUMA e
+    (16) e -> e . RESTA e
+    (17) e -> e . MULTIPLICACION e
+    (18) e -> e . DIVISION e
+
+    MAYOR           reduce using rule 18 (e -> e DIVISION e .)
+    MENOR           reduce using rule 18 (e -> e DIVISION e .)
+    MAYORIGUAL      reduce using rule 18 (e -> e DIVISION e .)
+    MENORIGUAL      reduce using rule 18 (e -> e DIVISION e .)
+    IGUAL           reduce using rule 18 (e -> e DIVISION e .)
+    DIFERENTE       reduce using rule 18 (e -> e DIVISION e .)
+    SUMA            reduce using rule 18 (e -> e DIVISION e .)
+    RESTA           reduce using rule 18 (e -> e DIVISION e .)
+    MULTIPLICACION  reduce using rule 18 (e -> e DIVISION e .)
+    DIVISION        reduce using rule 18 (e -> e DIVISION e .)
+    AND             reduce using rule 18 (e -> e DIVISION e .)
+    OR              reduce using rule 18 (e -> e DIVISION e .)
+    $end            reduce using rule 18 (e -> e DIVISION e .)
+    ParC            reduce using rule 18 (e -> e DIVISION e .)
+
+  ! SUMA            [ shift and go to state 22 ]
+  ! RESTA           [ shift and go to state 23 ]
+  ! MULTIPLICACION  [ shift and go to state 24 ]
+  ! DIVISION        [ shift and go to state 25 ]
+
+
+state 40
+
+    (23) e -> ParA p ParC .
+
+    MAYOR           reduce using rule 23 (e -> ParA p ParC .)
+    MENOR           reduce using rule 23 (e -> ParA p ParC .)
+    MAYORIGUAL      reduce using rule 23 (e -> ParA p ParC .)
+    MENORIGUAL      reduce using rule 23 (e -> ParA p ParC .)
+    IGUAL           reduce using rule 23 (e -> ParA p ParC .)
+    DIFERENTE       reduce using rule 23 (e -> ParA p ParC .)
+    SUMA            reduce using rule 23 (e -> ParA p ParC .)
+    RESTA           reduce using rule 23 (e -> ParA p ParC .)
+    MULTIPLICACION  reduce using rule 23 (e -> ParA p ParC .)
+    DIVISION        reduce using rule 23 (e -> ParA p ParC .)
+    AND             reduce using rule 23 (e -> ParA p ParC .)
+    OR              reduce using rule 23 (e -> ParA p ParC .)
+    $end            reduce using rule 23 (e -> ParA p ParC .)
+    ParC            reduce using rule 23 (e -> ParA p ParC .)
+
